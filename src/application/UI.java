@@ -9,7 +9,6 @@ import java.util.Arrays;
 import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
-import java.util.stream.Collectors;
 
 public class UI {
 
@@ -39,7 +38,7 @@ public class UI {
         System.out.flush();
     }
 
-    public static ChessPosition readChessPostion(Scanner sc) {
+    public static ChessPosition readChessPosition(Scanner sc) {
         try {
             String s = sc.nextLine();
             char column = s.charAt(0);
@@ -57,6 +56,9 @@ public class UI {
         System.out.println();
         System.out.println("Turn: " + chessMatch.getTurn());
         System.out.println("Waiting Player: " + chessMatch.getCurrentPlayer());
+        if (chessMatch.getCheck()) {
+            System.out.println("CHECK!");
+        }
     }
 
     public static void printBoard(ChessPiece[][] pieces) {
